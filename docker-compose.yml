@@ -1,0 +1,19 @@
+version: "3.3"
+services: 
+  parentservice:
+    image: parentservice
+    build: ./parentservice
+    ports: 
+      - "5000:8889"
+    networks:
+      - mynet
+  childservice:
+    image: childservice
+    build: ./childservice
+    ports: 
+      - "80"
+    networks:
+      - mynet
+      
+networks:
+  mynet:
